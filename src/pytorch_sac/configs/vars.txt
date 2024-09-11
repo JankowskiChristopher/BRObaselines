@@ -1,0 +1,6 @@
+ant.sh 0 5
+cheetah.sh 0 5
+hopper.sh 0 5
+humanoid.sh 0 5
+pendulum.sh 0 5
+quadruped.sh 0 5

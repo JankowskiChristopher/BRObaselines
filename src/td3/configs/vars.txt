@@ -1,0 +1,5 @@
+ant.sh 5 10
+cheetah.sh 5 10
+hopper.sh 5 10
+humanoid.sh 5 10
+pendulum.sh 5 10

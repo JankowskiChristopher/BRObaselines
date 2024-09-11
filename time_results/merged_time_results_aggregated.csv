@@ -1,0 +1,16 @@
+algo,universe,time_mean,time_std
+crossq,dm_control,592.5,219.61
+crossq,metaworld,617.23,59.75
+crossq,myo,578.25,55.15
+sac,dm_control,985.63,116.63
+sac,metaworld,1090.73,20.84
+sac,myo,1095.1,58.18
+sr_sac,dm_control,2881.77,459.77
+sr_sac,metaworld,2971.17,31.17
+sr_sac,myo,3064.7,47.82
+td3,dm_control,506.87,127.67
+td3,metaworld,614.37,14.06
+td3,myo,574.55,29.34
+tdmpc2,dm_control,3735.87,272.53
+tdmpc2,metaworld,3651.93,47.78
+tdmpc2,myo,7610.75,100.5

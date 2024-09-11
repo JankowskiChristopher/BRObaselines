@@ -1,0 +1,74 @@
+defaults:
+    - _self_
+
+device: cuda
+
+agent:
+    _target_: sac_agent.sac.SACAgent
+    name: sac
+
+    obs_dim: ??? # to be specified later
+    action_dim: ??? # to be specified later
+    action_range: ??? # to be specified later
+    device: ${device}
+    discount: 0.99
+    init_temperature: 1.0
+    alpha_lr: 3e-4
+    alpha_betas: [ 0.9, 0.999 ]
+    actor_lr: 3e-4
+    actor_betas: [ 0.9, 0.999 ]
+    actor_update_frequency: 1
+    critic_lr: 3e-4
+    critic_betas: [ 0.9, 0.999 ]
+    critic_tau: 0.005
+    critic_target_update_frequency: 1
+    batch_size: 256
+    learnable_temperature: true
+
+critic_cfg:
+    _target_: sac_agent.critic.DoubleQCritic
+    obs_dim: ??
+    action_dim: ??
+    hidden_dim: 256
+    hidden_depth: 2
+
+actor_cfg:
+    _target_: sac_agent.actor.DiagGaussianActor
+    obs_dim: ??
+    action_dim: ??
+    hidden_depth: 2
+    hidden_dim: 256
+    log_std_bounds: [ -10, 2 ]
+
+env: "HalfCheetah-v4"
+universe: "gym" # gym or dm_control or myo (more later)
+
+# this needs to be specified manually
+experiment: test_exp
+
+num_train_steps: 1e6
+replay_buffer_capacity: 1e6
+
+num_seed_steps: 10000
+eval_0_step: True
+csv_writing_enabled: True
+
+eval_frequency: 25000
+num_eval_episodes: 10
+
+
+# logger
+log_frequency: 10000
+log_save_tb: false
+track_GPU_memory: false
+
+# wandb
+wandb_project: "BaselinesBBFDAC"
+wandb_entity: "krzysztofj"
+wandb_group: ${env}
+
+
+# video recorder
+save_video: false
+
+seed: 1
